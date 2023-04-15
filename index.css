@@ -1,4 +1,82 @@
 body {
     text-align: center;
+    background-color: #064E3B;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
 }
 
+.container {
+    margin: 0 auto;
+    
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+img {
+    border-radius: 100%;
+    
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    margin: 20px 5px 0 5px;
+    font-size: 25px;
+    background-color: #059669;
+    border: 0;
+    border-radius: 10px;
+
+}
+
+button:hover {
+    background-color: #047857;
+    
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 8px; 
+
+}
+
+.live-results {
+    width: 400px;
+    height: 35px;
+    background-color: #047857;
+    margin: 0px auto;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-left: 10px;
+    text-align: start;
+
+}
+
+.total-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.revenue-commission {
+    width: 195px;
+    height: 35px;
+    background-color: #047857;
+    margin: 0px 5px;
+    border-radius: 20px;
+    padding-top: 5px;
+    
+}
+
+#reset-btn {
+    background-color: #BE123C;
+}
+
+#reset-btn:hover {
+    background-color: red;
+    color: white;
+}
