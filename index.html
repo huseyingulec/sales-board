@@ -4,6 +4,9 @@
         <title>Salesboard</title>
         <link rel="stylesheet" href="index.css">
         <meta name="viewport" content="width=device-width initial-scale=1.0"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -21,13 +24,13 @@
                 <h3>Live Sales - 
                     <span class="total-sales">total count here</span>
                 </h3>
-                <div  class="live-results">live outputs here</div>
+                <div  class="live-results" id="live-sales">live outputs here</div>
 
                 <h3>Live Achiements - 
                     <span class="total-achiements">total count here</span>
                 </h3>
 
-                <div class="live-results">live achiements here</div>
+                <div class="live-results" id="live-achiements">live achiements here</div>
 
                 <div class="total-section">
                     <div>
@@ -42,6 +45,6 @@
                 <button id="reset-btn">RESET</button>
             </div>
         </section>
-
+        <script src="index.js"></script>
     </body>
 </html>

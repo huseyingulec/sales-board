@@ -4,6 +4,9 @@ body {
     color: white;
     font-weight: bold;
     font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
