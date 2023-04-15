@@ -45,22 +45,22 @@ function fromLocal(input) {
 
 // checks if there is a data for salesCount 
 if ( typeof countFromLocal !== undefined ) {
-    let salesCount = countFromLocal // gets the data from local
+    salesCount = countFromLocal // gets the data from local
     totalSales.innerHTML = salesCount // renders data to html
 
-    let achievementsCount = fromLocal("achievementsCount") // gets data from local through function
+    achievementsCount = fromLocal("achievementsCount") // gets data from local through function
     totalAchievements.innerHTML = achievementsCount
 
-    let salesLog = fromLocal("salesLog")
+    salesLog = fromLocal("salesLog")
     liveSales.innerHTML = salesLog
 
-    let achievementsLog = fromLocal("achievementsLog")
+    achievementsLog = fromLocal("achievementsLog")
     liveAchievements.innerHTML = achievementsLog
 
-    let revenueLog = fromLocal("revenueLog")
+    revenueLog = fromLocal("revenueLog")
     totalRevenue.innerHTML = revenueLog
 
-    let commisionLog = fromLocal("commisionLog")
+    commisionLog = fromLocal("commisionLog")
     totalCommission.innerHTML = commisionLog
  }
 
@@ -118,7 +118,6 @@ function getMoney(product) {
 
 
 resetBtn.addEventListener("click", function(){     // listens for reset button
-    if (salesLog) {     // checks if there is an output or not, if yes executes the code
         window.confirm("Do you really want to delete all?") // shows a confirmation windows if user confirm, executes the code
         salesLog = ""
         liveSales.innerHTML = salesLog
@@ -140,7 +139,7 @@ resetBtn.addEventListener("click", function(){     // listens for reset button
 
         localStorage.clear()
     }
-})
+)
 
 function saveToLocal(arrayName, input) {        // saves data to local
     localStorage.setItem(arrayName, JSON.stringify(input))  // sets item to local and makes string before setting
