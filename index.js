@@ -1,5 +1,5 @@
 const starBtn = document.getElementById("star-btn")
-const fireBtn = document.getElementById("fire-btn")
+const sparkBtn = document.getElementById("fire-btn")
 
 const liveSales = document.getElementById("live-sales")
 const liveAchievements = document.getElementById("live-achievements")
@@ -69,7 +69,7 @@ starBtn.addEventListener("click", function(){ // listens for star button
     
 })
 
-fireBtn.addEventListener("click", function(){ // listens for fire button
+sparkBtn.addEventListener("click", function(){ // listens for fire button
    add(productB)
 })
 
