@@ -12,7 +12,7 @@ const totalCommission = document.getElementById("total-commission")
 
 const resetBtn = document.getElementById("reset-btn")
 
-const countFromLocal = JSON.parse(localStorage.getItem("salesCount"))
+const countDataFromLocalStorage = JSON.parse(localStorage.getItem("salesCount"))
 
 
 let salesLog = "" // sales output
@@ -34,34 +34,34 @@ const productA = {
 
 // Product B info
 const productB = {
-    emoji: "🔥",
+    emoji: "✨",
     revenue: 300,
     commision: 75
 }
 
-function fromLocal(input) {  
+function getDataFromLocalStorage(input) {  
     return JSON.parse(localStorage.getItem(input))
 }
 
 // checks if there is a data for salesCount 
-if ( typeof countFromLocal !== undefined ) {
-    salesCount = countFromLocal // gets the data from local
-    totalSales.innerHTML = salesCount // renders data to html
+if ( countDataFromLocalStorage !== null ) {
+    salesCount = countDataFromLocalStorage // gets the data from local
+    totalSales.textContent = salesCount // renders data to html
 
-    achievementsCount = fromLocal("achievementsCount") // gets data from local through function
-    totalAchievements.innerHTML = achievementsCount
+    achievementsCount = getDataFromLocalStorage("achievementsCount") // gets data from local through function
+    totalAchievements.textContent = achievementsCount
 
-    salesLog = fromLocal("salesLog")
-    liveSales.innerHTML = salesLog
+    salesLog = getDataFromLocalStorage("salesLog")
+    liveSales.textContent = salesLog
 
-    achievementsLog = fromLocal("achievementsLog")
-    liveAchievements.innerHTML = achievementsLog
+    achievementsLog = getDataFromLocalStorage("achievementsLog")
+    liveAchievements.textContent = achievementsLog
 
-    revenueLog = fromLocal("revenueLog")
-    totalRevenue.innerHTML = revenueLog
+    revenueLog = getDataFromLocalStorage("revenueLog")
+    totalRevenue.textContent = "$" + revenueLog
 
-    commisionLog = fromLocal("commisionLog")
-    totalCommission.innerHTML = commisionLog
+    commisionLog = getDataFromLocalStorage("commisionLog")
+    totalCommission.textContent = "$" + commisionLog
  }
 
 starBtn.addEventListener("click", function(){ // listens for star button
@@ -76,29 +76,30 @@ fireBtn.addEventListener("click", function(){ // listens for fire button
 function add(product) { 
     if ( salesLog.length < 15 ) { 
         salesCount++                          // adds 1 to count 
-        totalSales.innerHTML = salesCount       // renders data to html
+        totalSales.textContent = salesCount       // renders data to html
         saveToLocal("salesCount", salesCount)   // saves data to local through function
 
         salesLog += product.emoji       // adds emoji to output
-        liveSales.innerHTML = salesLog  // renders data to html
+        liveSales.textContent = salesLog  // renders data to html
         saveToLocal("salesLog", salesLog) // saves data to local through function
-
-        addAchievement(salesLog.length === 1, "🔔")     // adds achievements through function
-        addAchievement(salesCount === 15, "🏆")
-        addAchievement(revenueLog >= 2500, "💰")
-
         getMoney(product)
+        
+        checkAchievement(salesLog.length === 1, "🔔")     // checks achievements through function
+        checkAchievement(salesCount === 15, "🏆")
+        checkAchievement(revenueLog >= 2500, "💰")
+
+        
     }
 }
 
 
-function addAchievement(criteria, emoji) {
+function checkAchievement(criteria, emoji) {
     if (criteria) { // if criteria is true
       achievementsCount++ 
-      totalAchievements.innerHTML = achievementsCount  // renders data to html
+      totalAchievements.textContent = achievementsCount  // renders data to html
   
       achievementsLog += emoji // ads emoji to output
-      liveAchievements.innerHTML = achievementsLog  // renders data to html
+      liveAchievements.textContent = achievementsLog  // renders data to html
   
       saveToLocal("achievementsCount", achievementsCount)  // saves data to local through function
       saveToLocal("achievementsLog", achievementsLog)
@@ -109,8 +110,8 @@ function getMoney(product) {
     revenueLog += product.revenue // adds product revenue and commision to outputs
     commisionLog += product.commision
 
-    totalRevenue.innerHTML = revenueLog     // renders data to html
-    totalCommission.innerHTML = commisionLog
+    totalRevenue.textContent = "$" + revenueLog     // renders data to html
+    totalCommission.textContent = "$" + commisionLog
    
     saveToLocal("revenueLog", revenueLog)       // saves data to local through function
     saveToLocal("commisionLog", commisionLog)
@@ -120,22 +121,22 @@ function getMoney(product) {
 resetBtn.addEventListener("click", function(){     // listens for reset button
         window.confirm("Do you really want to delete all?") // shows a confirmation windows if user confirm, executes the code
         salesLog = ""
-        liveSales.innerHTML = salesLog
+        liveSales.textContent = salesLog
 
         achievementsLog = ""
-        liveAchievements.innerHTML = achievementsLog
+        liveAchievements.textContent = achievementsLog
 
         salesCount = 0
-        totalSales.innerHTML = salesCount
+        totalSales.textContent = salesCount
 
         achievementsCount = 0
-        totalAchievements.innerHTML = achievementsCount
+        totalAchievements.textContent = achievementsCount
 
         revenueLog = 0
-        totalRevenue.innerHTML = revenueLog
+        totalRevenue.textContent = "$" + revenueLog
 
         commisionLog = 0
-        totalCommission.innerHTML = commisionLog
+        totalCommission.textContent = "$" + commisionLog
 
         localStorage.clear()
     }
