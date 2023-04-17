@@ -74,7 +74,7 @@ fireBtn.addEventListener("click", function(){ // listens for fire button
 })
 
 function add(product) { 
-    if ( salesLog.length < 15 ) { 
+    if ( salesLog.length < 36 ) { 
         salesCount++                          // adds 1 to count 
         totalSales.textContent = salesCount       // renders data to html
         saveToLocal("salesCount", salesCount)   // saves data to local through function
