@@ -86,7 +86,7 @@ function add(product) {
         
         checkAchievement(salesLog.length === 1, "🔔")     // checks achievements through function
         checkAchievement(salesCount === 15, "🏆")
-        checkAchievement(revenueLog >= 2500, "💰")
+        checkAchievement(revenueLog >= 2500 && !achievementsLog.includes("💰"), "💰")
 
         
     }
